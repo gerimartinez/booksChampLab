@@ -1,10 +1,19 @@
 import PropTypes from "prop-types";
-import { Card } from "react-bootstrap";
+import { useState } from "react";
+import { Card, Button } from "react-bootstrap";
 
 const BookItem = ({ title, author, pageCount, rating, imageUrl }) => {
+
+    const [count, setCount] = useState(0);
+
+    const handleClick = () => {
+        setCount( count + 1)
+    }
+    
+    
+
     return (
         <Card style={{ width: "22rem", margin: 15}}>
-            17
             Unidad 1.2: Lógica de componentes - Laboratorio de computación III - TUP
             <Card.Img
                 height={400}
@@ -16,6 +25,8 @@ const BookItem = ({ title, author, pageCount, rating, imageUrl }) => {
                 <Card.Subtitle>{author}</Card.Subtitle>
                 <div>{rating?.length} estrellas</div>
                 <p>{pageCount} páginas</p>
+                <h6>count: {count}</h6>
+                <Button variant="primary" onClick={handleClick}>Count</Button>
             </Card.Body>
         </Card>
     );
